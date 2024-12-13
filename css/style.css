@@ -152,12 +152,12 @@ img {
 .slidedown {
     margin: 0 auto;
     padding: 0;
-    overflow: hidden; /* Hide overflowing content */
-    height: 0; /* Initial state: collapsed */
-    transition: height 0.4s ease; /* Smooth animation for height changes */
+    overflow: hidden;
+    height: 0;
+    transition: height 0.4s ease;
 }
 .slidedown.active {
-    height: auto; /* Optional fallback for active state */
+    height: auto;
     overflow: visible;
 }
 .external-link {
