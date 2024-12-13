@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const a = document.querySelectorAll(".toggle");
-  a.forEach((e) => {
-    e.addEventListener("click", function () {
+  const toggles = document.querySelectorAll(".toggle");
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("click", function () {
+      console.log("Button clicked:", this); // Debugging
       let slider = this.nextElementSibling;
       if (slider.style.height) {
         slider.style.height = null;
-        e.classList.remove("highlight");
+        toggle.classList.remove("highlight");
       } else {
-        document.querySelectorAll(".toggle.highlight").forEach((f) => {
-          f.classList.remove("highlight");
-          f.nextElementSibling.style.height = null;
+        document.querySelectorAll(".toggle.highlight").forEach((activeToggle) => {
+          activeToggle.classList.remove("highlight");
+          activeToggle.nextElementSibling.style.height = null;
         });
-        e.classList.add("highlight");
+        toggle.classList.add("highlight");
         slider.style.height = slider.scrollHeight + "px";
       }
-    })
-  })
-})
+    });
+  });
+});

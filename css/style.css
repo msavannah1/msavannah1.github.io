@@ -98,7 +98,7 @@ img {
 .button,
 .intro,
 .links-container,
-.slidedown,
+.slidedown 
 .external-link {
     width: 100%;
     min-width: 50%;
@@ -137,6 +137,8 @@ img {
     /* Scaling button to 0.98 to its original size */ 
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
     /* Lowering the shadow */ 
+    height: auto; /* Optional fallback for active state */
+    overflow: visible;
 } 
 
 .intro {
@@ -150,13 +152,14 @@ img {
 .slidedown {
     margin: 0 auto;
     padding: 0;
-    -webkit-transition: height .4s ease;
-    -o-transition: height .4s ease;
-    transition: height .4s ease;
-    overflow: hidden;
-    height: 0;
+    overflow: hidden; /* Hide overflowing content */
+    height: 0; /* Initial state: collapsed */
+    transition: height 0.4s ease; /* Smooth animation for height changes */
 }
-
+.slidedown.active {
+    height: auto; /* Optional fallback for active state */
+    overflow: visible;
+}
 .external-link {
     border: 1px solid var(--primaryText);
     border-radius: 20px;
@@ -203,6 +206,7 @@ img {
 .footer a {
     color: inherit;
 }
+
 
 /* Media queries allow you to change style properties according to the screen width. In this case, if the screen is AT LEAST 540 pixels wide (bigger than a standard phone), the .container resizes to 540 pixels and the buttons and intro resize to 85% of the container width */
 @media (min-width: 540px) {
